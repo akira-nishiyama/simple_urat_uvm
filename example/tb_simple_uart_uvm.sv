@@ -28,6 +28,7 @@ module tb_simple_uart_uvm;
             end
         join
     end
+    assign sif.posi = sif.piso;
     initial begin
         set_global_timeout(10000000ns);
         uvm_config_db#(virtual simple_uart_if)::set(uvm_root::get(), "*", "vif", sif);

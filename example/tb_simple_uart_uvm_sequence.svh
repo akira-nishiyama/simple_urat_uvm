@@ -14,7 +14,8 @@ class issue_one_trans_seq extends simple_uart_slave_base_sequence;
   virtual task body();
     simple_uart_seq_item trans_item;
     `uvm_create(trans_item)
-    `uvm_send(trans_item)
+    `uvm_do(trans_item)
+    //`uvm_send(trans_item)
     #1000;
   endtask
 endclass
