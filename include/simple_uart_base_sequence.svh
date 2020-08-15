@@ -1,4 +1,4 @@
-// simple_uart_slave_base_sequence.svh
+// simple_uart_base_sequence.svh
 //      This file implements the base sequence for simple_uart_slave.
 //      Base sequence raise_objection in pre_body() and drop_objection in post_body().
 //      
@@ -7,7 +7,7 @@
 // https://opensource.org/licenses/mit-license.php
 //
 
-virtual class simple_uart_slave_base_sequence extends uvm_sequence #(simple_uart_seq_item);
+virtual class simple_uart_base_sequence extends uvm_sequence #(simple_uart_seq_item);
     parameter C_AXI_ADDR_WIDTH = 32;
     parameter C_AXI_DATA_WIDTH = 32;
     function new(string name="simple_axi_mster_base_sequence");

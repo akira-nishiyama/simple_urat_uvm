@@ -11,10 +11,10 @@ package simple_uart_uvm_pkg;
     `include "uvm_macros.svh"
     import uvm_pkg::*;
     `include "simple_uart_seq_item.svh"
-    `include "simple_uart_slave_sequencer.svh"
-    `include "simple_uart_slave_driver.svh"
-    `include "simple_uart_slave_monitor.svh"
-    `include "simple_uart_slave_agent.svh"
-    `include "simple_uart_slave_base_sequence.svh"
+    `include "simple_uart_sequencer.svh"
+    `include "simple_uart_driver.svh"
+    `include "simple_uart_monitor.svh"
+    `include "simple_uart_agent.svh"
+    `include "simple_uart_base_sequence.svh"
 endpackage
 

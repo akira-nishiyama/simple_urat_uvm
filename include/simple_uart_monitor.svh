@@ -1,4 +1,4 @@
-// simple_uart_slave_monitor.svh
+// simple_uart_monitor.svh
 //      This file implements the monitor for simple_uart_slave.
 //      Reset behavior is not supported.
 //
@@ -7,8 +7,8 @@
 // https://opensource.org/licenses/mit-license.php
 //
 
-class simple_uart_slave_monitor extends uvm_monitor;
-    `uvm_component_utils(simple_uart_slave_monitor)
+class simple_uart_monitor extends uvm_monitor;
+    `uvm_component_utils(simple_uart_monitor)
     virtual simple_uart_if vif;
     uvm_analysis_port #(simple_uart_seq_item) item_port;
     int baud_rate;//config. Currently, only 115200bps is allowed.
@@ -18,7 +18,7 @@ class simple_uart_slave_monitor extends uvm_monitor;
     int stop_bit_num;//number of stop bit. 1,2 is valid.
     int sampling_interval;//sampling interval.
     real bit_judge_ratio = 0.8;//ratio
-    function new(string name="simple_uart_slave_monitor", uvm_component parent);
+    function new(string name="simple_uart_monitor", uvm_component parent);
         super.new(name, parent);
         item_port = new("item_port",this);
         //baud rate config

@@ -9,10 +9,10 @@
 class tb_simple_uart_uvm_env extends uvm_env;
     `uvm_component_utils(tb_simple_uart_uvm_env)
     `uvm_new_func
-    simple_uart_slave_agent agent;
+    simple_uart_agent agent;
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        agent = simple_uart_slave_agent::type_id::create("agent",this);
+        agent = simple_uart_agent::type_id::create("agent",this);
     endfunction
 endclass
 

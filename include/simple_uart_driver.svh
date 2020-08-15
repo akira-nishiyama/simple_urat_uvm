@@ -1,5 +1,5 @@
-// simple_uart_slave_driver.svh
-//      This file implements the simple_uart_slave_driver.
+// simple_uart_driver.svh
+//      This file implements the simple_uart_driver.
 //
 // Copyright (c) 2020 Akira Nishiyama.
 // Released under the MIT license
@@ -11,8 +11,8 @@
 //      simple_uart_parity_odd(bit)    : this config is valid when simple_uart_parity_enable set to 1.
 //                                       1 for add odd_parity, 0 for add even_parity(default).
 //      simple_uart_stop_bit_num(int)  : number of stop bit. 1 and 2 is valid.
-class simple_uart_slave_driver extends uvm_driver #(simple_uart_seq_item);
-    `uvm_component_utils(simple_uart_slave_driver)
+class simple_uart_driver extends uvm_driver #(simple_uart_seq_item);
+    `uvm_component_utils(simple_uart_driver)
     virtual simple_uart_if vif;
     uvm_analysis_port #(simple_uart_seq_item) item_port;
     int baud_rate;//config. Currently, only 115200bps is allowed.
@@ -20,7 +20,7 @@ class simple_uart_slave_driver extends uvm_driver #(simple_uart_seq_item);
     bit parity_enable;//config
     bit parity_odd;//config, used if parity_enable=1.0:even_parity, 1:odd_parity
     int stop_bit_num;//number of stop bit. 1,2 is valid.
-    function new (string name ="simple_uart_slave_driver", uvm_component parent);
+    function new (string name ="simple_uart_driver", uvm_component parent);
         super.new(name, parent);
         item_port = new("item_port",this);
     endfunction

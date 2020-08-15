@@ -6,7 +6,7 @@
 // https://opensource.org/licenses/mit-license.php
 //
 
-class issue_one_trans_seq extends simple_uart_slave_base_sequence;
+class issue_one_trans_seq extends simple_uart_base_sequence;
     `uvm_object_utils(issue_one_trans_seq)
     function new(string name="issue_one_trans_seq");
         super.new(name);
