@@ -5,8 +5,14 @@
 // Copyright (c) 2020 Akira Nishiyama.
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
-//
-
+// Configs:
+//      vif(simple_uart_if) : simple_uart_if for driver.
+//      simple_uart_baud_rate(int)          : baud rate. Currently, only 115200 bps is valid.(default:115200 bps)
+//      simple_uart_parity_enable(bit)      : set 1 if uart protocol has parity bit.(default:enable)
+//      simple_uart_parity_odd(bit)         : this config is valid when simple_uart_parity_enable set to 1.
+//                                            1 for add odd_parity, 0 for add even_parity(default).
+//      simple_uart_stop_bit_num(int)       : number of stop bit. 1 and 2 is valid.
+//      simple_uart_sampling_interval(int)  : rx data sampling interval.
 class simple_uart_monitor extends uvm_monitor;
     `uvm_component_utils(simple_uart_monitor)
     virtual simple_uart_if vif;
@@ -53,7 +59,7 @@ class simple_uart_monitor extends uvm_monitor;
             uvm_report_info("CONFIG","sampling interval set to default value(10 ns)");
             sampling_interval = 10;//default value
         end
-        
+
     endfunction
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
@@ -162,4 +168,3 @@ class simple_uart_monitor extends uvm_monitor;
     endtask
 
 endclass
-
