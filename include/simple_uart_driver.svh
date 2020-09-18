@@ -91,6 +91,7 @@ class simple_uart_driver extends uvm_driver #(simple_uart_seq_item);
             //stop bit
             vif.piso <= 1;
             repeat(stop_bit_num) #(bit_period);
+            #(bit_period*0.2);
             seq_item_port.item_done();
         end
     endtask

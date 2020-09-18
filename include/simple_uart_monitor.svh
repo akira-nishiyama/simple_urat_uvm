@@ -110,7 +110,8 @@ class simple_uart_monitor extends uvm_monitor;
 
     task search_start_bit(output bit ret, output logic val);
         logic b;
-        wait(vif.posi === 0);
+        wait(vif.posi === 1);//search starts with high
+        wait(vif.posi === 0);//detect edge.
         bit_judge(b);
         if(b === 1'b1 || b === 1'bX) begin
             ret = 1;//start bit search fail
