@@ -104,7 +104,9 @@ class simple_uart_monitor extends uvm_monitor;
                 check_parity(parity);
             end
             //check stop bit.
-            check_stop_bit();
+            fork
+                check_stop_bit();
+            join_none
         end
     endtask
 
@@ -127,7 +129,7 @@ class simple_uart_monitor extends uvm_monitor;
         if(b != pality) `uvm_error("UART-S-MON-PCHK","wrong pality detected.")
     endtask
 
-    task check_stop_bit();
+    task automatic check_stop_bit();
         logic b;
         for(int i = 0; i < stop_bit_num; ++i) begin
             bit_judge(b);
